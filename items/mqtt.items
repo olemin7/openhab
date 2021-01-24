@@ -1,0 +1,8 @@
+Dimmer children_clock_light    "Light"                <light>  ["Lighting"] { channel="mqtt:topic:pibroker:clock_children:led" }
+Number children_clock_temp      "Temperature [%.1f °C]"<temperature>           { channel="mqtt:topic:pibroker:clock_children:temperature" }
+Number children_clock_humidity  "Humidity [%.1f %%]"   <humidity>       { channel="mqtt:topic:pibroker:clock_children:humidity" }
+Number children_clock_ldr       "LDR [%.1f]"           <light>       { channel="mqtt:topic:pibroker:clock_children:ldr" }
+
+Dimmer clock_light    "Light"                <light>  ["Lighting"] { channel="mqtt:topic:pibroker:clock:led" }
+
+
