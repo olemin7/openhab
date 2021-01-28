@@ -8,6 +8,13 @@ Number parent_clock_temp      "Temperature [%.1f °C]"<temperature>        { cha
 Number parent_clock_humidity  "Humidity [%.1f %%]"   <humidity>           { channel="mqtt:topic:pibroker:clock_parent:humidity" }
 Number parent_clock_ldr       "LDR [%.1f]"           <light>              { channel="mqtt:topic:pibroker:clock_parent:ldr" }
 
+Number weather_dht_temperature "Temperature [%.1f °C]"<temperature>       { channel="mqtt:topic:pibroker:weather:dht_temperature" }
+Number weather_dht_humidity   "Humidity [%.1f %%]"   <humidity>           { channel="mqtt:topic:pibroker:weather:dht_humidity" }
+Number weather_sht_temperature "Temperature [%.1f °C]"<temperature>       { channel="mqtt:topic:pibroker:weather:sht_temperature" }
+Number weather_sht_humidity   "Humidity [%.1f %%]"   <humidity>           { channel="mqtt:topic:pibroker:weather:sht_humidity" }
+Number weather_bmp_temperature "Temperature [%.1f °C]"<temperature>       { channel="mqtt:topic:pibroker:weather:bmp_temperature" }
+Number weather_bmp_pressure   "Pressure [%.0f ]"   <pressure>             { channel="mqtt:topic:pibroker:weather:bmp_pressure" }
+
 
 Dimmer clock_light    "Light"                <light>  ["Lighting"] { channel="mqtt:topic:pibroker:clock:led" }
 

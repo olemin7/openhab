@@ -1,0 +1,14 @@
+sitemap demo label="My home" {
+    Frame label="Date" {
+        Text item=LocalTime_Date icon="calendar"
+    }
+
+    Frame label="Weather" {
+		Chart item=weather_dht_temperature period=d refresh=60
+		Default item=weather_dht_temperature
+		Default item=weather_bmp_pressure
+    }
+
+
+
+}
