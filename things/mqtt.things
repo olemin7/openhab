@@ -3,7 +3,7 @@ Bridge mqtt:broker:pibroker "pibroker" [ host="localhost", port=1883, secure=fal
    
     Thing topic clock_children "clock" @ "Children" {
     Channels:
-        Type switch : led         "led"        [ stateTopic="stat/clock_children", transformationPattern="JSONPATH:$.led", commandTopic="cmd/clock" ]
+        Type dimmer : led         "led"        [ stateTopic="stat/clock_children", transformationPattern="JSONPATH:$.led", commandTopic="cmd/clock_children", formatBeforePublish="{'led':%.0f}" ]
         Type number : temperature "Temperature"[ stateTopic="stat/clock_children", transformationPattern="JSONPATH:$.temperature", unit="°C"]
         Type number : humidity    "Humidity"   [ stateTopic="stat/clock_children", transformationPattern="JSONPATH:$.humidity" ]
         Type number : ldr         "ldr"        [ stateTopic="stat/clock_children", transformationPattern="JSONPATH:$.ldr" ]
@@ -12,9 +12,20 @@ Bridge mqtt:broker:pibroker "pibroker" [ host="localhost", port=1883, secure=fal
 
     }
 
+    Thing topic clock_parent "clock" @ "Parent" {
+    Channels:
+        Type dimmer : led         "led"        [ stateTopic="stat/clock_parent", transformationPattern="JSONPATH:$.led", commandTopic="cmd/clock_parent" , formatBeforePublish="{'led':%.0f}" ]
+        Type number : temperature "Temperature"[ stateTopic="stat/clock_parent", transformationPattern="JSONPATH:$.temperature", unit="°C"]
+        Type number : humidity    "Humidity"   [ stateTopic="stat/clock_parent", transformationPattern="JSONPATH:$.humidity" ]
+        Type number : ldr         "ldr"        [ stateTopic="stat/clock_parent", transformationPattern="JSONPATH:$.ldr" ]
+        Type number : timeStatus  "timeStatus" [ stateTopic="stat/clock_parent", transformationPattern="JSONPATH:$.timeStatus" ]
+        Type string : time        "time"       [ stateTopic="stat/clock_parent", transformationPattern="JSONPATH:$.time" ]
+
+    }
+
     Thing topic clock "clock" @ "test" {
     Channels:
-        Type dimmer : led         "led"        [ stateTopic="stat/clock", transformationPattern="JSONPATH:$.led", commandTopic="cmd/clock", formatBeforePublish="{'led':%f}" ]
+        Type dimmer : led         "led"        [ stateTopic="stat/clock", transformationPattern="JSONPATH:$.led", commandTopic="cmd/clock", formatBeforePublish="{'led':%.0f}" ]
 
     }
 
