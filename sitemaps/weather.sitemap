@@ -1,4 +1,4 @@
-sitemap demo label="My home" {
+sitemap demo label="weather" {
     Frame label="Date" {
         Text item=LocalTime_Date icon="calendar"
     }

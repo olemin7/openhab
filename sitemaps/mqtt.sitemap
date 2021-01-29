@@ -1,0 +1,34 @@
+sitemap demo label="My home" {
+    Frame label="Date" {
+        Text item=LocalTime_Date icon="calendar"
+    }
+
+    Frame label="Outdoor" {
+	Default item=weather_dht_temperature
+	Default item=weather_dht_humidity
+    }
+    
+    Frame label="balcony" {
+      	Default item=weather_sht_temperature
+       	Default item=weather_sht_humidity
+    }
+
+
+    Frame label="Parent" {
+	Switch item=parent_clock_light label="preset" mappings=[0="Off", 2="night", 100="On"]
+        Default item=parent_clock_temp
+	Default item=parent_clock_humidity
+    }
+
+    Frame label="Children" {
+	Switch item= children_clock_light label="preset" mappings=[0="Off", 2="night", 100="On"]        
+        Default item=children_clock_temp
+        Default item=children_clock_humidity
+    }
+
+    Frame label="test" {
+        Default item=clock_light
+
+    }
+
+}
