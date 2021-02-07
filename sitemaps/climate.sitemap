@@ -1,0 +1,23 @@
+sitemap climate label="Climate" {
+    Frame label="Date" {
+        Text item=LocalTime_Date icon="calendar"
+    }
+
+    Frame label="Outdoors" {
+        Chart item=weather_outdoors_temperature period=2D refresh=60 legend=true
+        Chart item=weather_pressure period=2D refresh=60 legend=true
+    	Default item=weather_outdoors_temperature
+    	Default item=weather_outdoors_humidity
+        Default item=weather_pressure
+    }
+
+    Frame label="Inside" {
+        Default item=weather_sht_temperature
+        Default item=weather_sht_humidity
+        Default item=parent_clock_temp
+        Default item=parent_clock_humidity
+        Default item=children_clock_temp
+        Default item=children_clock_humidity
+    }
+
+}

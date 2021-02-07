@@ -1,0 +1,12 @@
+rule "outdoors daily"
+when
+//Every minute
+	Time cron "0/15 *   *   *   *   ?" or
+	System started
+then
+//	var today_eod = now.with(LocalTime.MAX)
+//	var yesterday_eod = today_eod.minusDays(1)
+        logInfo("daily","yesterday:{}, today:{}",yesterday_eod,today_eod)
+    //weather_outdoors_calck_yesterday_temperature=[]
+//	weather_outdoors_calck_yesterday_temperature = weather_outdoors_temperature
+end 

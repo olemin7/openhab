@@ -1,21 +1,26 @@
-Dimmer children_clock_light    "Light"                <light>  ["Lighting"] { channel="mqtt:topic:pibroker:clock_children:led" }
-Number children_clock_temp      "Temperature [%.1f °C]"<temperature>        { channel="mqtt:topic:pibroker:clock_children:temperature" }
-Number children_clock_humidity  "Humidity [%.1f %%]"   <humidity>           { channel="mqtt:topic:pibroker:clock_children:humidity" }
+Group gOutdoors (gOutdoors_temperature)
+Group gTemperatures (gOutdoors_temperature,gIndoors_temperature)
+Group gOutdoors_temperature
+Group gIndoors_temperature
+
+Dimmer children_clock_light    "children Light"                <light>  ["Lighting"] { channel="mqtt:topic:pibroker:clock_children:led" }
+Number children_clock_temp      "children.temp [%.1f °C]"<temperature>	(gIndoors_temperature)        { channel="mqtt:topic:pibroker:clock_children:temperature" }
+Number children_clock_humidity  "children.hum [%.1f %%]"   <humidity>           { channel="mqtt:topic:pibroker:clock_children:humidity" }
 Number children_clock_ldr       "LDR [%.1f]"           <light>              { channel="mqtt:topic:pibroker:clock_children:ldr" }
 
-Dimmer parent_clock_light    "Light"                <light>  ["Lighting"] { channel="mqtt:topic:pibroker:clock_parent:led" }
-Number parent_clock_temp      "Temperature [%.1f °C]"<temperature>        { channel="mqtt:topic:pibroker:clock_parent:temperature" }
-Number parent_clock_humidity  "Humidity [%.1f %%]"   <humidity>           { channel="mqtt:topic:pibroker:clock_parent:humidity" }
-Number parent_clock_ldr       "LDR [%.1f]"           <light>              { channel="mqtt:topic:pibroker:clock_parent:ldr" }
+Dimmer parent_clock_light    "parent Light"          <light>  ["Lighting"] { channel="mqtt:topic:pibroker:clock_parent:led" }
+Number parent_clock_temp     "parent.temp [%.1f °C]" <temperature>        (gIndoors_temperature) { channel="mqtt:topic:pibroker:clock_parent:temperature" }
+Number parent_clock_humidity "parent.hum [%.1f %%]"  <humidity>           { channel="mqtt:topic:pibroker:clock_parent:humidity" }
+Number parent_clock_ldr      "parent.LDR [%.1f]"     <light>              { channel="mqtt:topic:pibroker:clock_parent:ldr" }
 
-Number weather_dht_temperature "Temperature [%.1f °C]"<temperature>       { channel="mqtt:topic:pibroker:weather:dht_temperature" }
-Number weather_dht_humidity   "Humidity [%.1f %%]"   <humidity>           { channel="mqtt:topic:pibroker:weather:dht_humidity" }
-Number weather_sht_temperature "Temperature [%.1f °C]"<temperature>       { channel="mqtt:topic:pibroker:weather:sht_temperature" }
-Number weather_sht_humidity   "Humidity [%.1f %%]"   <humidity>           { channel="mqtt:topic:pibroker:weather:sht_humidity" }
-Number weather_bmp_temperature "Temperature [%.1f °C]"<temperature>       { channel="mqtt:topic:pibroker:weather:bmp_temperature" }
-Number weather_bmp_pressure   "Pressure [%.0f ]"   <pressure>             { channel="mqtt:topic:pibroker:weather:bmp_pressure" }
+Number weather_outdoors_temperature "outdoor.temp [%.1f °C]"<temperature>    (gOutdoors_temperature)   { channel="mqtt:topic:pibroker:weather:dht_temperature" }
+Number weather_outdoors_humidity   	"outdoor.hum [%.1f %%]" <humidity>           { channel="mqtt:topic:pibroker:weather:dht_humidity" }
+Number weather_sht_temperature 		"balcon.temp [%.1f °C]" <temperature>       (gOutdoors_temperature) { channel="mqtt:topic:pibroker:weather:sht_temperature" }
+Number weather_sht_humidity   	    "balcon.hum [%.1f %%]"  <humidity>           { channel="mqtt:topic:pibroker:weather:sht_humidity" }
+Number weather_bmp_temperature 		"Temperature [%.1f °C]" <temperature>       { channel="mqtt:topic:pibroker:weather:bmp_temperature" }
+Number weather_pressure   			"Pressure [%.0f kPa]"   <pressure>             { channel="mqtt:topic:pibroker:weather:bmp_pressure" }
 
+//CALCULATED
 
-Dimmer clock_light    "Light"                <light>  ["Lighting"] { channel="mqtt:topic:pibroker:clock:led" }
-
+Number weather_outdoors_calck_yesterday_temperature "Temperature [%.1f °C]"<temperature>  
 

@@ -1,0 +1,8 @@
+sitemap light label="light" {
+
+    Frame label="Light" {
+    	Switch item=parent_clock_light mappings=[0="Off", 2="night", 100="On"]
+    	Switch item= children_clock_light label="children" mappings=[0="Off", 2="night", 100="On"]        
+    }
+
+}

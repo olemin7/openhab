@@ -1,12 +1,16 @@
-sitemap demo label="weather" {
+sitemap weather label="weather" {
     Frame label="Date" {
         Text item=LocalTime_Date icon="calendar"
     }
 
     Frame label="Weather" {
-		Chart item=weather_dht_temperature period=d refresh=60
-		Default item=weather_dht_temperature
+		Chart item=gOutdoors_temperature period=2D refresh=60 legend=true
+		Chart item=gIndoors_temperature period=2D refresh=60 legend=true
+		Chart item=weather_outdoors_temperature period=W refresh=60 legend=true
+		Chart item=weather_pressure period=W refresh=60 legend=true
+	//	Default item=weather_dht_temperature
 		Default item=weather_bmp_pressure
+	//	Default item=weather_dht_humidity
     }
 
 
