@@ -3,7 +3,7 @@ Group gTemperatures (gOutdoors_temperature,gIndoors_temperature)
 Group gOutdoors_temperature
 Group gIndoors_temperature
 
-Dimmer children_clock_light    "children Light"                <light>  ["Lighting"] { channel="mqtt:topic:pibroker:clock_children:led" }
+Dimmer children_clock_light     "children Light"                <light>  ["Lighting"] { channel="mqtt:topic:pibroker:clock_children:led" }
 Number children_clock_temp      "children.temp [%.1f °C]"<temperature>	(gIndoors_temperature)        { channel="mqtt:topic:pibroker:clock_children:temperature" }
 Number children_clock_humidity  "children.hum [%.1f %%]"   <humidity>           { channel="mqtt:topic:pibroker:clock_children:humidity" }
 Number children_clock_ldr       "LDR [%.1f]"           <light>              { channel="mqtt:topic:pibroker:clock_children:ldr" }
@@ -14,13 +14,12 @@ Number parent_clock_humidity "parent.hum [%.1f %%]"  <humidity>           { chan
 Number parent_clock_ldr      "parent.LDR [%.1f]"     <light>              { channel="mqtt:topic:pibroker:clock_parent:ldr" }
 
 Number weather_outdoors_temperature "outdoor.temp [%.1f °C]"<temperature>    (gOutdoors_temperature)   { channel="mqtt:topic:pibroker:weather:dht_temperature" }
-Number weather_outdoors_humidity   	"outdoor.hum [%.1f %%]" <humidity>           { channel="mqtt:topic:pibroker:weather:dht_humidity" }
-Number weather_sht_temperature 		"balcon.temp [%.1f °C]" <temperature>       (gOutdoors_temperature) { channel="mqtt:topic:pibroker:weather:sht_temperature" }
-Number weather_sht_humidity   	    "balcon.hum [%.1f %%]"  <humidity>           { channel="mqtt:topic:pibroker:weather:sht_humidity" }
-Number weather_bmp_temperature 		"Temperature [%.1f °C]" <temperature>       { channel="mqtt:topic:pibroker:weather:bmp_temperature" }
-Number weather_pressure   			"Pressure [%.0f kPa]"   <pressure>             { channel="mqtt:topic:pibroker:weather:bmp_pressure" }
+Number weather_outdoors_humidity    "outdoor.hum [%.1f %%]" <humidity>          {channel="mqtt:topic:pibroker:weather:dht_humidity" }
+Number weather_bmp_temperature      "Temperature [%.1f °C]" <temperature>       {channel="mqtt:topic:pibroker:weather:bmp_temperature" }
+Number weather_pressure             "Pressure [%.0f kPa]"   <pressure>          {channel="mqtt:topic:pibroker:weather:bmp_pressure" }
+Number weather_battery              "battery  [%.2f V]"     <batterylevel>      {channel="mqtt:topic:pibroker:weather:battery" }
+Number weather_wifi_rssi            "wifi_rssi [%.0f dB]"   <qualityofservice>  {channel="mqtt:topic:pibroker:weather:wifi_rssi" }
+Number weather_illuminance          "illuminance [%.0f Lx]" <sun>              {channel="mqtt:topic:pibroker:weather:illuminance" }
 
 //CALCULATED
-
-Number weather_outdoors_calck_yesterday_temperature "Temperature [%.1f °C]"<temperature>  
-
+Number weather_outdoors_calck_yesterday_temperature "Temperature [%.1f °C]"<temperature> 

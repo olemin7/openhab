@@ -1,0 +1,2 @@
+Switch power_220_ok      <poweroutlet> (UPS) {channel="gpio:pigpio-remote:ups:power_220_ok"}
+Switch battery_low <battery>     (UPS) {channel="gpio:pigpio-remote:ups:battery_low"}

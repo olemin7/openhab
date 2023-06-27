@@ -23,14 +23,15 @@ Bridge mqtt:broker:pibroker "pibroker" [ host="localhost", port=1883, secure=fal
 
     }
 
-    Thing topic weather "weather" @ "balcony" {
+    Thing topic weather "weather" @ "outdoor" {
     Channels:
         Type number : dht_temperature "dhtTemperature"[ stateTopic="stat/weather", transformationPattern="JSONPATH:$.dht.temperature", unit="°C"]
         Type number : dht_humidity    "dhtHumidity"   [ stateTopic="stat/weather", transformationPattern="JSONPATH:$.dht.humidity" ]
-        Type number : sht_temperature "shtTemperature"[ stateTopic="stat/weather", transformationPattern="JSONPATH:$.sht30.temperature", unit="°C"]
-        Type number : sht_humidity    "shtHumidity"   [ stateTopic="stat/weather", transformationPattern="JSONPATH:$.sht30.humidity" ]
-        Type number : bmp_temperature "bmpTemperature"[ stateTopic="stat/weather", transformationPattern="JSONPATH:$.bmp.temperature", unit="°C"]
-        Type number : bmp_pressure    "bmoPressure"   [ stateTopic="stat/weather", transformationPattern="JSONPATH:$.bmp.pressure" ]
+        Type number : bmp_temperature "bmpTemperature"[ stateTopic="stat/weather", transformationPattern="JSONPATH:$.bmp180.temperature", unit="°C"]
+        Type number : bmp_pressure    "bmpPressure"   [ stateTopic="stat/weather", transformationPattern="JSONPATH:$.bmp180.pressure" ]
+        Type number : battery         "battery"       [ stateTopic="stat/weather", transformationPattern="JSONPATH:$.battery.value" ]
+        Type number : wifi_rssi       "wifiRSSI"      [ stateTopic="stat/weather", transformationPattern="JSONPATH:$.wifi.RSSI" ]
+        Type number : illuminance     "Illuminance"   [ stateTopic="stat/weather", transformationPattern="JSONPATH:$.BH1750.value" ]
     }
 
     Thing topic clock "clock" @ "test" {
