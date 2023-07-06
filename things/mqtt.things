@@ -30,7 +30,7 @@ Bridge mqtt:broker:pibroker "pibroker" [ host="localhost", port=1883, secure=fal
         Type number : bmp_temperature "bmpTemperature"[ stateTopic="stat/weather", transformationPattern="JSONPATH:$.bmp180.temperature", unit="°C"]
         Type number : bmp_pressure    "bmpPressure"   [ stateTopic="stat/weather", transformationPattern="JSONPATH:$.bmp180.pressure" ]
         Type number : battery         "battery"       [ stateTopic="stat/weather", transformationPattern="JSONPATH:$.battery.value" ]
-        Type number : wifi_rssi       "wifiRSSI"      [ stateTopic="stat/weather", transformationPattern="JSONPATH:$.wifi.RSSI" ]
+        Type number : wifi_rssi       "wifiRSSI"      [ stateTopic="stat/weather", transformationPattern="JSONPATH:$.wifi.rssi" ]
         Type number : illuminance     "Illuminance"   [ stateTopic="stat/weather", transformationPattern="JSONPATH:$.BH1750.value" ]
     }
 

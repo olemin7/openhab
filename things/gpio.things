@@ -3,3 +3,4 @@ Thing gpio:pigpio-remote:ups "ups" [host="::1", port=8888] {
         Type pigpio-digital-input : power_220_ok [ gpioId=17, invert=true, debouncingTime=5, pullupdown="UP"]
         Type pigpio-digital-input : battery_low [ gpioId=27, invert=true, debouncingTime=5, pullupdown="UP"]
 }
+
